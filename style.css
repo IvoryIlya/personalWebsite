@@ -1,0 +1,47 @@
+@import "https://www.nerdfonts.com/assets/css/webfont.css";
+@import "https://use.fontawesome.com/releases/v6.3.0/css/all.css";
+@import "https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap";
+
+body {
+    font-family: 'Manrope';
+    margin: 0;
+    overflow: hidden;
+    animation: gradient 10s ease infinite;
+    background: grey;
+    background: linear-gradient(90deg, rgba(81, 171, 207, 1) 0%, rgba(252, 176, 69, 1) 30%, rgba(81, 171, 207, 1) 100%, rgba(154, 78, 237, 1) 70%);
+    background-size: 300% 300%;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 40%;
+    }
+
+    50% {
+        background-position: 150% 200%;
+    }
+
+    100% {
+        background-position: 0% 40%;
+    }
+
+
+}
+
+div span,
+div i {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.window {
+    border-radius: 25px;
+    padding: 5px;
+    border: 2px solid black;
+    width: 350px;
+    height: 200px;
+}
