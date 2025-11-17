@@ -1,28 +1,195 @@
-<html>
+<!DOCTYPE html>
+<html lang="ru">
 <head>
-  	<title>Ivory</title>
-	  <meta charset="UTF-8">
-	  <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title en="Ilya's (Ivory) personal website" ru="Личная страница Ильи (Ivory)">Личная страница Ильи (Ivory)</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <div>
-	<h1>&nbsp;Ivory's Page <p style="font-size: 10px;">(or maybe you came from Pag profile)</p></h1>
-	<div class="window">
-		<br>
-		<i class="fa-solid fa-link"></i><span><h3>&nbsp; My Links:</h3></span>
-		<br>
-			<!-- class="fa-solid fa-code-branch" -->
-		&emsp;<i class="fa-brands fa-github"></i><span><a href="https://github.com/IvoryIlya" target="_blank">&nbsp;&nbsp;&nbsp;GitHub</a></span>
-		<br>
-		&emsp; <i class="fa-brands fa-telegram"></i><span><a href="https://t.me/@IlyaLuvMindustry" target="_blank">&nbsp;&nbsp;Telegram</a></span>
-		<br>
-		&emsp; <i class="fa-brands fa-discord"></i><span><a href="https://discord.com/users/880460715935272991/" target="_blank">&nbsp;Discord</a></span>
-		<br>
-		&emsp; <i class="nf-md-laser_pointer"></i><span><a href="https://beatleader.com/u/76561199106725913" target="_blank">&nbsp;&nbsp;My BeatLeader</a></span>
-		<br>
-	</div>
-  </div>
+    <div class="gradient-background"></div>
+    <div class="container">
+        <div class="language-switcher">
+            <div class="time-panel-container"> <!-- Container for time and panel button -->
+                <div id="localTime">Local Time loading...</div>
+                <a href="https://panel.holemab.ru" id="panel-link" target="_blank"> <!-- Panel link -->
+                    <button class="panel-btn" en="My Panel" ru="Моя Панель">My Panel</button> <!-- Panel button -->
+                </a>
+            </div>
+            <button class="lang-btn active" data-lang="ru" en="Russian" ru="Русский">Русский</button>
+            <button class="lang-btn" en="English" ru="English" data-lang="en">English</button>
+        </div>
+        <header>
+            <h1 en="This is my homepage ✨" ru="Это моя домашняя страница ✨">Это моя домашняя страница ✨</h1>
+            <p class="subtitle" en="Welcome to my personal website. Here you'll find information about me and my projects"
+               ru="Добро пожаловать на мой сайт. Здесь вы найдете информацию о мне и моих проектах и интересах.">
+                Добро пожаловать на мой сайт. Здесь вы найдете информацию о мне и моих проектах.
+            </p>
+        </header>
+        <!-- Projects section -->
+        <div class="projects">
+            <a href="https://github.com/IvoryIlya/personalWebsite">
+                <div class="card">
+                    <h2 en="This website!" ru="Этот вебсайт!">Этот вебсайт!</h2>
+                    <p en="You can click on this element to see what is under the hood of this website (on GitHub)"
+                    ru="Ты можешь увидеть как работает это вебсайт (на Гитхабе)">
+                        Ты можешь увидеть как работает это вебсайт (на Гитхабе)
+                    </p>
+                </div>
+            </a>
+            <a href="https://github.com/IvoryIlya/netschool-cli">
+                <div class="card">
+                    <h2 en="NetSchool TUI" ru="NetSchool (Сетевой Город) TUI">NetSchool (Сетевой Город) TUI</h2>
+                    <p en="This project uses netschool-api library, to make working with school diary easier in the terminal."
+                    ru="Этот проект использует библиотеку netschool-api, для того, чтобы сделать использование Сетевого Города легче в терминале.">
+                        Этот проект использует библиотеку netschool-api, для того, чтобы сделать использование Сетевого Города легче в терминале.
+                    </p>
+                </div>
+            </a>
+        </div>
+        <!-- Links section -->
+        <div class="links">
+            <a href="https://github.com/IvoryIlya" class="link-container">
+                <div class="link-content">
+                    <img src="icons/github.svg" alt="GitHub" class="link-image">
+                    <h3 class="link-title" en="My GitHub" ru="Мой Гитхаб">Мой Гитхаб</h3>
+                    <p class="link-description" en="This is my place for projects, that I develop(ed)"
+                       ru="Это место для моих проектов, которые я создаю (или создавал).">
+                        Это место для моих проектов, которые я создаю (или создавал).
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/channel/UCg3cImzO8gVCsjq6vL0FzCw" class="link-container">
+                <div class="link-content">
+                    <span class="link-icon">🎮</span>
+                    <h3 class="link-title" en="My YouTube channel" ru="Мой Ютуб канал">Мой Ютуб канал</h3>
+                    <p class="link-description" en="It has Shorts, although I do not plan to make regular videos"
+                        ru="На нем есть Shorts, длинные видео снимать я не планирую.">
+                        На нем есть Shorts, длинные видео снимать я не планирую.
+                    </p>
+                </div>
+            </a>
+            <a href="https://www.youtube.com/channel/UCg3cImzO8gVCsjq6vL0FzCw" class="link-container">
+                <div class="link-content">
+                    <img src="icons/beatleader.png" alt="BeatLeader" class="link-image">
+                    <h3 class="link-title" en="My BeatLeader!" ru="Мой BeatLeader">Мой BeatLeader</h3>
+                    <p class="link-description" en="It has my Beat Saber replays and scores!"
+                        ru="На нем есть реплеи и очки за каждые песни!">
+                        На нем есть реплеи и очки за каждые песни!
+                    </p>
+                </div>
+            </a>
+            <a href="https://steamcommunity.com/id/RealPyroHmmH/" class="link-container">
+                <div class="link-content">
+                    <img src="icons/steam.svg" alt="Steam" class="link-image">
+                    <h3 class="link-title" en="My Steam account" ru="Мой Steam аккаунт">Мой Steam аккаунт</h3>
+                    <p class="link-description" en="Created in year 2020!"
+                        ru="Зарегистрирован в 2020 году!">
+                        Зарегистрирован в 2020 году!
+                    </p>
+                </div>
+            </a>
+            <a href="https://music.yandex.ru/users/semenov.ilya.n/playlists/3" class="link-container">
+                <div class="link-content">
+                    <span class="link-icon">🎶</span>
+                    <h3 class="link-title" en="My Favorites album" ru="Мои любимые треки">Мои любимые треки</h3>
+                    <p class="link-description" en="This playlist is on Yandex Music (but tbh I would like to have Spotify)"
+                        ru="Данный плейлист размещен на Яндекс Музыке (но я бы предпочел Spotify)">
+                        Данный плейлист размещен на Яндекс Музыке (но я бы предпочел Spotify)
+                    </p>
+                </div>
+            </a>
+            <a href="https://t.me/IlyaArchBTW" class="link-container">
+                <div class="link-content">
+                    <img src="icons/telegram.svg" alt="Telegram" class="link-image">
+                    <h3 class="link-title" en="My Telegram account" ru="Мой телеграм аккаунт">Мой телеграм аккаунт</h3>
+                    <p class="link-description" en="Why not to message me?"
+                        ru="Почему бы и не написать мне?">
+                        Почему бы и не написать мне?
+                    </p>
+                </div>
+            </a>
+        </div>
+    </div>
+    <footer>
+        <p en="" ru="Ты думал, здесь что-то будет?">
+            Ты думал, здесь что-то будет?
+        </p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => { // do on full load
+            const gradientBg = document.querySelector('.gradient-background');
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const translatableElements = document.querySelectorAll('[en]');
+            // initial language - russian
+            let currentLang = 'ru';
+            // language switching
+            function switchLanguage(lang) {
+                currentLang = lang;
+                // update button states
+                langButtons.forEach(btn => {
+                    if (btn.dataset.lang === lang) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+                // update content
+                translatableElements.forEach(el => {
+                    el.textContent = el.getAttribute(lang);
+                });
+                // update language to selected language
+                document.documentElement.lang = lang;
+            }
+            // also add event listeners to language buttons
+            langButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    switchLanguage(btn.dataset.lang);
+                });
+            });
+            function updateTime() {
+                const now = new Date();
+                const options = {
+                    timeZone: 'Europe/Moscow',
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    second: 'numeric',
+                    hour12: false
+                };
+                const formatter = new Intl.DateTimeFormat('en', options);
+                const timeString = formatter.format(now);
+                localTime.textContent = "My Local Time: " + timeString;
+            }
+            updateTime();
+            setInterval(updateTime, 1000);
+            // activate the gradient on mouse move
+            document.body.addEventListener('mousemove', e => {
+                const x = e.clientX;
+                const y = e.clientY;
+                gradientBg.style.setProperty('--x', `${x}px`);
+                gradientBg.style.setProperty('--y', `${y}px`);
+                // add class to show the gradient
+                if (!gradientBg.classList.contains('active')) {
+                    gradientBg.classList.add('active');
+                }
+            });
+            // remove the gradient when mouse leaves the window
+            document.body.addEventListener('mouseleave', () => {
+                gradientBg.classList.remove('active');
+            });
+
+            const panelButton = document.querySelector('.panel-btn');
+            if (panelButton) {
+                // listen for language changes and update the panel button text
+                langButtons.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                         if (btn.dataset.lang === currentLang) { // check if the clicked button is the active one
+                             panelButton.textContent = panelButton.getAttribute(currentLang);
+                         }
+                    });
+                });
+            }
+        });
+    </script>
 </body>
 </html>
