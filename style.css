@@ -1,47 +1,350 @@
-@import "https://www.nerdfonts.com/assets/css/webfont.css";
-@import "https://use.fontawesome.com/releases/v6.3.0/css/all.css";
-@import "https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap";
-
-body {
-    font-family: 'Manrope';
+/* reset default browser styles */
+* {
     margin: 0;
-    overflow: hidden;
-    animation: gradient 10s ease infinite;
-    background: grey;
-    background: linear-gradient(90deg, rgba(81, 171, 207, 1) 0%, rgba(252, 176, 69, 1) 30%, rgba(81, 171, 207, 1) 100%, rgba(154, 78, 237, 1) 70%);
-    background-size: 300% 300%;
-    text-align: center;
-    padding: 10px;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* make body take full height */
+body {
+    min-height: 800px;
+    background: #1a1a2e;
+    color: #fff;
+    font-family: 'Manrope Regular', 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+    position: relative;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+}
+/* no link decoration */
+a {
+    text-decoration: none;
+}
+/* create fixed background gradient that covers entire viewport */
+.gradient-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+/* define gradient circle that follows mouse cursor */
+.gradient-background::before {
+    --size: 0;
+    content: '';
+    position: absolute;
+    left: var(--x); /* getting x  */
+    top: var(--y);  /* and y */
+    width: var(--size);  /* getting width */
+    height: var(--size); /* and height sizes */
+    background: radial-gradient(circle closest-side, rgba(204, 220, 255, 0.2), transparent);
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+}
+/* show gradient when active class is added */
+.gradient-background.active::before {
+    --size: 100px;
+}
+/* main content area that expands to fill available space */
+.main-content {
+    flex: 1;
+}
+/* center content with max width and padding */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px;
+}
+/* center header content with vertical padding */
+header {
+    text-align: center;
+    padding: 48px 0;
+}
+/* style main heading with gradient text effect */
+h1 {
+    font-size: 56px;
+    margin-bottom: 16px;
+    background: linear-gradient(45deg, #ff6b6b, #ffa5a5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+/* style subtitle text with muted color and proper spacing */
+.subtitle {
+    font-size: 19px;
+    color: #a9afc3;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+/* position language switcher at top right of viewport */
+.language-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
 }
 
-@keyframes gradient {
-    0% {
-        background-position: 0% 40%;
-    }
+/* --- Added Styles for Time and Panel Button Container --- */
+.time-panel-container {
+    display: flex;
+    align-items: center; /* Align items vertically centered */
+    gap: 10px; /* Add some space between the time and the button */
+    /* Inherit styles from .language-switcher if needed, or define separately */
+    /* For example, if you want it styled similarly: */
+    /* background: rgba(255, 255, 255, 0.1); */
+    /* border: 1px solid rgba(255, 255, 255, 0.2); */
+    /* padding: 5px; */
+    /* border-radius: 20px; */
+}
+/* --- End Added Styles --- */
 
-    50% {
-        background-position: 150% 200%;
-    }
-
-    100% {
-        background-position: 0% 40%;
-    }
-
-
+/* local time style */
+#localTime {
+background: rgba(255, 255, 255, 0.1);
+border: 1px solid rgba(255, 255, 255, 0.2);
+color: #fff;
+padding: 8px 15px;
+border-radius: 20px;
+font-weight: 500;
+font-family: monospace;
+display: flex;
+align-items: center;
+justify-content: center;
+min-width: 80px;
 }
 
-div span,
-div i {
-    display: inline-block;
-    vertical-align: middle;
+/* --- Added Styles for Panel Button --- */
+#panel-link {
+text-decoration: none; /* Remove underline from the link itself */
 }
 
-.window {
-    border-radius: 25px;
-    padding: 5px;
-    border: 2px solid black;
-    width: 350px;
-    height: 200px;
+#panel-link button {
+/* Copy styles from .lang-btn */
+background: rgba(255, 255, 255, 0.1);
+border: 1px solid rgba(255, 255, 255, 0.2);
+color: #fff;
+padding: 8px 15px; /* Match the padding of .lang-btn */
+border-radius: 20px;
+cursor: pointer;
+transition: all 0.3s ease;
+font-weight: 500;
+/* Add specific hover effect for the panel button */
+/* Example: Change to a greenish tint on hover */
+}
+
+#panel-link button:hover {
+background: rgba(0, 255, 123, 0.3); /* Greenish hover effect */
+}
+/* --- End Added Styles --- */
+
+
+/* style language buttons with hover effects */
+.lang-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+/* add hover effect to language buttons */
+.lang-btn:hover {
+    background: rgba(255, 105, 180, 0.3);
+}
+/* highlight active language button */
+.lang-btn.active {
+    background: #ff7bac;
+    box-shadow: 0 0 10px rgba(255, 123, 172, 0.5);
+}
+/* create grid for project cards - two columns for projects */
+.projects {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 32px;
+    margin: 48px 0;
+}
+/* style project cards with hover effects */
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 32px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+/* add lift effect on card hover */
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+/* style card headings */
+.card h2 {
+    font-size: 29px;
+    margin-bottom: 16px;
+    color: #ff7bac;
+    font-weight: 600;
+    text-align: center;
+}
+/* style card paragraphs */
+.card p {
+    color: #cbd0e7;
+    line-height: 1.7;
+    font-size: 16px;
+    text-align: center;
+}
+/* Weather section styles */
+.weather-section {
+    margin: 48px 0;
+}
+.weather-card {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+.weather-card h2 {
+    margin-bottom: 20px;
+}
+#weather-container {
+min-height: 120px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.weather-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.weather-icon {
+    width: 80px;
+    height: 80px;
+}
+.temperature {
+    font-size: 32px;
+    font-weight: bold;
+    color: #ff7bac;
+    margin: 0;
+}
+.description {
+    font-size: 18px;
+    margin: 0;
+    text-transform: capitalize;
+}
+.weather-extras {
+    font-size: 14px;
+    color: #a9afc3;
+    margin-top: 5px;
+}
+#refresh-weather {
+background: rgba(255, 123, 172, 0.2);
+color: #ff7bac;
+border: 1px solid #ff7bac;
+padding: 8px 16px;
+border-radius: 20px;
+cursor: pointer;
+margin-top: 20px;
+transition: all 0.3s ease;
+font-weight: 500;
+}
+#refresh-weather:hover {
+background: rgba(255, 123, 172, 0.3);
+transform: translateY(-2px);
+}
+/* grid for link items - three columns for links */
+.links {
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    gap: 32px;
+    margin: 48px 0;
+}
+/* style link containers */
+.link-container {
+    display: block;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+}
+/* add hover effect to link containers */
+.link-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    background: rgba(255, 105, 180, 0.2);
+}
+/* style link content */
+.link-content {
+    padding: 32px;
+    text-align: center;
+}
+/* style link icons */
+.link-icon {
+    font-size: 40px;
+    margin-bottom: 16px;
+    color: #ff7bac;
+    display: block;
+}
+/* style link images */
+.link-image {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 16px;
+    display: block;
+}
+/* style link headings */
+.link-title {
+    font-size: 24px;
+    margin-bottom: 12px;
+    color: white;
+    font-weight: 600;
+}
+/* style link descriptions */
+.link-description {
+    color: #cbd0e7;
+    font-size: 16px;
+    line-height: 1.6;
+}
+/* footer truly at the end of page (screen) */
+footer {
+    text-align: center;
+    padding: 32px;
+    color: #a9afc3;
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0;
+}
+/* style for smaller screens */
+@media (max-width: 768px) {
+    /* reduce heading size on mobile */
+    h1 {
+        font-size: 40px;
+    }
+    /* stack cards vertically on mobile */
+    .projects,
+    .links {
+        grid-template-columns: 100%;
+    }
+    /* language switcher position on mobile - moved to left */
+    .language-switcher {
+        top: 10px;
+        left: 10px; /* Changed from right: 10px; */
+        right: auto; /* Ensure right is not set */
+    }
+    /* adjust weather card on mobile */
+    .weather-card {
+        max-width: 100%;
+    }
+    /* adjust time and panel button container on mobile - align items to start */
+    .time-panel-container {
+        justify-content: flex-start; /* Align items to the left */
+    }
 }
